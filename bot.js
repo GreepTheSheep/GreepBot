@@ -9,15 +9,9 @@ client.on('ready', () => {
 
 client.on('message', msg => {
 
-    if (msg.content === 'ping') {
-        msg.channel.send('Pong ! ');
-    }
-    if (msg.content === 'react') {
-        msg.react('👍')
-            .catch(console.error);
-    }
-    if (msg.content === 'spoil') {
-        msg.channel.send('||Quand j apprends le JS, je peux hacker la NASA||');
+    if (msg.content === '/ping') {
+        msg.channel.send('Pong ! ' + `${Date.now() - msg.createdTimestamp}` + 'ms.')
+        .catch(console.error);
     }
 });
 
