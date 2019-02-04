@@ -16,6 +16,9 @@ client.on('message', msg => {
         msg.react('👍')
             .catch(console.error);
     }
+    if (msg.content === 'spoil') {
+        msg.channel.send('||Quand j apprends le JS, je peux hacker la NASA||');
+    }
 });
 
 client.login('NTQxMzkwMjg1MDk2MjIyNzMw.DzewqQ.vL7ymjpKPkiNFtvpUp09wMq4m24');
