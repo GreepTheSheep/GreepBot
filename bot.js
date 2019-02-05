@@ -10,7 +10,7 @@ client.on('ready', () => {
 client.on('message', msg => {
 
     if (msg.content === '/ping') {
-        msg.channel.send('Pong ! ' + `${Date.now() - msg.createdTimestamp}` + 'ms.')
+        msg.channel.send(`Pong! ${Date.now() - msg.createdTimestamp} ms.`)
         .catch(console.error);
     }
 });
