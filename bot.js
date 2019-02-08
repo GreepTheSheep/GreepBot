@@ -1,18 +1,18 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const config = require('./config.json');
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setActivity('apprendre le JS');
 });
 
+var prefix = config.prefix
+client.on('message', message => {
 
-client.on('message', msg => {
+    const ping = require('./cmds/ping.js');
+    ping(message, client, prefix);
 
-    if (msg.content === '/ping') {
-        msg.channel.send(`Pong! ${Date.now() - msg.createdTimestamp} ms.`)
-        .catch(console.error);
-    }
 });
 
-client.login('NTQxMzkwMjg1MDk2MjIyNzMw.DzewqQ.vL7ymjpKPkiNFtvpUp09wMq4m24');
+client.login(config.token);
