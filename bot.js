@@ -3,10 +3,30 @@ const client = new Discord.Client();
 const config = require('./config.json');
 const package = require('./package.json');
 
+const actmsgs = [
+    `Created by ${package.author}`,
+    `Version ${package.version}`,
+    `apprendre le JS`,
+    `greep-team.epizy.com`,
+    `vous faire amuser avec un mouton !`
+];
+
+function randomItem(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setActivity('apprendre le JS');
     client.guilds.get('330047758813888517').channels.get('458290375174651935').send(`**__<@${client.user.id}> version ${package.version} by ${package.author}__** : :white_check_mark:`)
+    client.user.setActivity(`demarrer tranquilement...`)
+
+    const actfunction = new Promise(function(resolve, reject) {
+        setInterval(function() {
+            let actmsg = randomItem(actmsgs);
+            client.user.setActivity(`${actmsg}`)
+        }, 60000);
+    });
+    actfunction
 });
 
 var prefix = config.prefix
