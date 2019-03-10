@@ -1,7 +1,7 @@
 {
-    "name": "SJ-SI",
-    "version": "0.0.3",
-    "description": "Bot syncronisation avec Scolinfo.net",
+    "name": "GreepBot",
+    "version": "0.0.4",
+    "description": "",
     "main": "bot.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
