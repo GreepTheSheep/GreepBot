@@ -45,6 +45,9 @@ client.on('message', message => {
     const youtube = require('./cmds/youtube.js');
     youtube(message, client, prefix, args);
 
+    const wikipedia = require('./cmds/wikipedia.js');
+    wikipedia(message, client, prefix, args);
+
     const bug = require('./cmds/bug.js');
     bug(message, client, prefix);
 
