@@ -17,7 +17,6 @@ function randomItem(array) {
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    client.guilds.get('330047758813888517').channels.get('458290375174651935').send(`**__<@${client.user.id}> version ${package.version} by ${package.author}__** : :white_check_mark:`)
     client.user.setActivity(`demarrer tranquilement...`)
 
     const actfunction = new Promise(function(resolve, reject) {
@@ -31,15 +30,20 @@ client.on('ready', () => {
 
 var prefix = config.prefix
 client.on('message', message => {
+    let messageArray = message.content.split(" ");
+    let args = messageArray.slice(1);
 
     const ping = require('./cmds/ping.js');
     ping(message, client, prefix);
 
     const google = require('./cmds/google.js');
-    google(message, client, prefix);
+    google(message, client, prefix, args);
+
+    const report = require('./cmds/report.js');
+    report(message, client, prefix, args);
 
     const youtube = require('./cmds/youtube.js');
-    youtube(message, client, prefix);
+    youtube(message, client, prefix, args);
 
     const bug = require('./cmds/bug.js');
     bug(message, client, prefix);

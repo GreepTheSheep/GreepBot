@@ -1,10 +1,8 @@
 const Discord = require("discord.js");
 
-function google(message, client, prefix) {
+function google(message, client, prefix, args) {
 
     if (message.content.startsWith(prefix + 'google')) {
-        let args = message.content.split(" ")
-        args.shift()
         message.delete()
         let embed = new Discord.RichEmbed()
         embed.setColor("#00ff00")

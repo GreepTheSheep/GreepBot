@@ -1,10 +1,8 @@
 const Discord = require("discord.js");
 
-function youtube(message, client, prefix) {
+function youtube(message, client, prefix, args) {
 
     if (message.content.startsWith(prefix + 'yt')) {
-        let args = message.content.split(" ")
-        args.shift()
         message.delete()
         let embed = new Discord.RichEmbed()
         embed.setColor("#00ff00")
